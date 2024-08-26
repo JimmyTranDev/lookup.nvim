@@ -1,31 +1,18 @@
-local Browser = {
-  FIREFOX = "firefox",
-  CHROME = "google-chrome",
-  BRAVE = "brave",
-  AUTO = "defaul",
-}
+local WebsiteName = require("enums").WebsiteName
 
-local OS = {
-  LINUX = "linux",
-  MAC = "mac",
-  WINDOWS = "windows"
-}
-
-local SearchEngineUrl = {
-  google = "https://www.google.com/search?q=",
-  bing = "https://www.bing.com/search?q=",
-  yahoo = "https://search.yahoo.com/search?p=",
-  yandex = "https://yandex.com/search/?text=",
-  duck_duck_go = "https://duckduckgo.com/?q=",
-  baidu = "https://www.baidu.com/s?wd=",
-  stack_overflow = "https://stackoverflow.com/search?q=",
-  wikipedia = "https://en.wikipedia.org/wiki/Special:Search?search=",
-  reddit = "https://www.reddit.com/search/?q=",
-  google_reddit = "https://www.google.com/search?q=site:reddit.com ",
+local website_name_to_query_url = {
+  [WebsiteName.GOOGLE] = "https://www.google.com/search?q=",
+  [WebsiteName.BING] = "https://www.bing.com/search?q=",
+  [WebsiteName.YAHOO] = "https://search.yahoo.com/search?p=",
+  [WebsiteName.YANDEX] = "https://yandex.com/search/?text=",
+  [WebsiteName.DUCK_DUCK_GO] = "https://duckduckgo.com/?q=",
+  [WebsiteName.BAIDU] = "https://www.baidu.com/s?wd=",
+  [WebsiteName.STACK_OVERFLOW] = "https://stackoverflow.com/search?q=",
+  [WebsiteName.WIKIPEDIA] = "https://en.wikipedia.org/wiki/Special:Search?search=",
+  [WebsiteName.REDDIT] = "https://www.reddit.com/search/?q=",
+  [WebsiteName.GOOGLE_REDDIT] = "https://www.google.com/search?q=site:reddit.com ",
 }
 
 return {
-  Browser = Browser,
-  OS = OS,
-  SearchEngineUrl = SearchEngineUrl,
+  website_name_to_query_url = website_name_to_query_url,
 }
