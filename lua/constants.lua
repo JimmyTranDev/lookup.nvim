@@ -24,20 +24,8 @@ local SearchEngineUrl = {
   google_reddit = "https://www.google.com/search?q=site:reddit.com ",
 }
 
-local lookup_input_table = {
-  { command_name = "LookupInputGoogle",        search_engine_url = SearchEngineUrl.google },
-  { command_name = "LookupInputBing",          search_engine_url = SearchEngineUrl.bing },
-  { command_name = "LookupInputYahoo",         search_engine_url = SearchEngineUrl.yahoo },
-  { command_name = "LookupInputYandex",        search_engine_url = SearchEngineUrl.yandex },
-  { command_name = "LookupInputDuckDuckGo",    search_engine_url = SearchEngineUrl.duck_duck_go },
-  { command_name = "LookupInputBaidu",         search_engine_url = SearchEngineUrl.baidu },
-  { command_name = "LookupInputStackOverflow", search_engine_url = SearchEngineUrl.stack_overflow },
-  { command_name = "LookupInputWikipedia",     search_engine_url = SearchEngineUrl.wikipedia }
-}
-
 return {
   Browser = Browser,
   OS = OS,
   SearchEngineUrl = SearchEngineUrl,
-  lookup_input_table = lookup_input_table
 }

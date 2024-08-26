@@ -17,7 +17,7 @@ end
 
 local function setup()
   vim.api.nvim_create_user_command(
-    "LookupInput",
+    "Lookup",
     function(args)
       print(SearchEngineUrl[args.args])
       lookup_input(SearchEngineUrl[args.args], selected_browser)
