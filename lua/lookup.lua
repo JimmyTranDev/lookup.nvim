@@ -1,30 +1,29 @@
 local constants = require("constants")
+local utils = require("utils")
 local Browser = constants.Browser
-local selected_browser = Browser.CHROME
+local SearchEngineUrl = constants.SearchEngineUrl
+local selected_browser = Browser.FIREFOX
 
 local function lookup_input(search_engine_url, browser)
-  return function()
-    local input = vim.fn.input("Search: ")
-    if input == "" then
-      return
-    end
-    local url = search_engine_url .. input
-    vim.fn.jobstart({ browser, url })
+  local search_query = vim.fn.input("Search: ")
+  if search_query == "" then
+    return
   end
-end
 
-local function create_lookup_input_command(command_name, search_engine_url)
-  vim.api.nvim_create_user_command(
-    command_name,
-    lookup_input(search_engine_url, selected_browser),
-    { nargs = 0 }
-  )
+  local encoded_search_query = utils.urlencode(search_query)
+  local url = search_engine_url .. encoded_search_query
+  vim.fn.jobstart({ browser, url })
 end
 
 local function setup()
-  for _, lookup_input_table in ipairs(constants.lookup_input_table) do
-    create_lookup_input_command(lookup_input_table.command_name, lookup_input_table.search_engine_url)
-  end
+  vim.api.nvim_create_user_command(
+    "LookupInput",
+    function(args)
+      print(SearchEngineUrl[args.args])
+      lookup_input(SearchEngineUrl[args.args], selected_browser)
+    end,
+    { nargs = 1 }
+  )
 end
 
 return {
