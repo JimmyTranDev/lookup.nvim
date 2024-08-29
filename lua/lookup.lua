@@ -9,7 +9,19 @@ local function setup(options)
     "Lookup",
     function(args)
       local searchEngineName = args.args
-      actions.lookup(website_name_to_query_url[searchEngineName], options.browser_command)
+      if options ~= nil then
+        actions.lookup(website_name_to_query_url[searchEngineName], options.browser_command)
+      else
+        actions.lookup(website_name_to_query_url[searchEngineName])
+      end
+    end,
+    { nargs = 1 }
+  )
+  vim.api.nvim_create_user_command(
+    "LookupSelected",
+    function(args)
+      local searchEngineName = args.args
+      actions.lookupSelected(website_name_to_query_url[searchEngineName], options.browser_command)
     end,
     { nargs = 1 }
   )

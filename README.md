@@ -1,8 +1,11 @@
 # 🔍 lookup.nvim
+
 Lookup anything anything on the web easily
 
 ## 📦 Installation
+
 ### Lazy
+
 ```lua
 {
   "JimmyTranDev/lookup.nvim"
@@ -25,18 +28,9 @@ Lookup anything anything on the web easily
 ```
 
 You can set det browser command by setting the `browser` option in the setup function if the default browser is not supported.
-### Packer
-```lua
-{
-  ...
-  config = function()
-    require("lookup").setup({browser_command = "firefox"})
-  end,
-  ...
-}
-```
 
 ## Supported `SearchEngine`
+
 ```
 google
 bing
@@ -50,50 +44,21 @@ reddit
 google_reddit
 ```
 
-## Commands 
+## Commands
 
 ### Lookup
+
 This command will open a prompt for you to enter the search query and then open the browser with the search query.
+
 ```
 :Lookup [SearchEngine]
 ```
+
 Example:
+
 ```
 :Lookup google
 :Lookup bing
 :Lookup stack_overflow
 :Lookup google_reddit
-```
-
-### LookupMenu (Coming Soon)
-This command will show a searchable menu for you to select the search engine and then open the browser with the search query.
-```
-:LookupMenu 
-```
-Example:
-```
-:LookupMenu
-```
-
-### LookupSelected (Coming Soon)
-This command will open the browser with the selected text as the search query.
-```
-:LookupSelected [SearchEngine]
-```
-Example:
-```
-:LookupSelected google
-:LookupSelected bing
-:LookupSelected stack_overflow
-:LookupSelected google_reddit
-```
-
-### LookupSelectedMenu (Coming Soon)
-This command will show a searchable menu for you to select the search engine and then open the browser with the selected text as the search query.
-```
-:LookupSelectedMenu 
-```
-Example:
-```
-:LookupMenuSelected
 ```
