@@ -1,8 +1,8 @@
-local Browser = {
+local BrowserCommand = {
   FIREFOX = "firefox",
   CHROME = "google-chrome",
   BRAVE = "brave",
-  AUTO = "defaul",
+  CHROMIUM = "chromium",
 }
 
 local OperatingSystem = {
@@ -25,7 +25,7 @@ local WebsiteName = {
 }
 
 return {
-  Browser = Browser,
+  BrowserCommand = BrowserCommand,
   OperatingSystem = OperatingSystem,
   WebsiteName = WebsiteName,
 }

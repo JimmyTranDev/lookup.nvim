@@ -1,6 +1,10 @@
 local utils = require('utils')
 
-local function lookup(search_engine_url, browser)
+local function lookup(search_engine_url, open_command)
+  if open_command == nil then
+    open_command = utils.getOpenCommand()
+  end
+
   local search_query = vim.fn.input("Search: ")
   if search_query == "" then
     return
@@ -8,7 +12,7 @@ local function lookup(search_engine_url, browser)
 
   local encoded_search_query = utils.urlencode(search_query)
   local url = search_engine_url .. encoded_search_query
-  vim.fn.jobstart({ browser, url })
+  vim.fn.jobstart({ open_command, url })
 end
 
 return {

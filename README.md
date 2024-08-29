@@ -1,8 +1,6 @@
 # 🔍 lookup.nvim
 Lookup anything anything on the web easily
 
-NOTE: This plugin is in pre-alpha so don't use it. It will not work
-
 ## 📦 Installation
 ### Lazy
 ```lua
@@ -25,6 +23,19 @@ NOTE: This plugin is in pre-alpha so don't use it. It will not work
   end,
 }
 ```
+
+You can set det browser command by setting the `browser` option in the setup function if the default browser is not supported.
+### Packer
+```lua
+{
+  ...
+  config = function()
+    require("lookup").setup({browser_command = "firefox"})
+  end,
+  ...
+}
+```
+
 ## Supported `SearchEngine`
 ```
 google
@@ -57,14 +68,11 @@ Example:
 ### LookupMenu (Coming Soon)
 This command will show a searchable menu for you to select the search engine and then open the browser with the search query.
 ```
-:LookupMenu [SearchEngine]
+:LookupMenu 
 ```
 Example:
 ```
-:LookupMenu google
-:LookupMenu bing
-:LookupMenu stack_overflow
-:LookupMenu google_reddit
+:LookupMenu
 ```
 
 ### LookupSelected (Coming Soon)
@@ -83,12 +91,9 @@ Example:
 ### LookupSelectedMenu (Coming Soon)
 This command will show a searchable menu for you to select the search engine and then open the browser with the selected text as the search query.
 ```
-:LookupSelectedMenu [SearchEngine]
+:LookupSelectedMenu 
 ```
 Example:
 ```
-:LookupMenuSelected google
-:LookupMenuSelected bing
-:LookupMenuSelected stack_overflow
-:LookupMenuSelected google_reddit
+:LookupMenuSelected
 ```
